@@ -60,7 +60,7 @@ if lst:
         col0.write(f"Sensor: {key}")
         col1.metric("Temperature", f'{item["temperature"].iloc[-1]:.0f} \N{DEGREE SIGN}C')
         col2.metric("Humidity", f'{item["humidity"].iloc[-1]:.0f} %')
-        col3.metric("Pressure", f'{item["pressure"].iloc[-1]:.0f} kPa')
+        col3.metric("Pressure", f'{item["pressure"].iloc[-1]:.0f} hPa')
     
     st.header('Historical Readings')
     # Temperature
