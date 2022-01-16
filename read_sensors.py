@@ -21,8 +21,8 @@ def load_dataframe(host, dbname, user, password):
     client = influxdb.InfluxDBClient(host, port, user, password, dbname, ssl=True, verify_ssl=False)
     return pd.DataFrame(client.query(query, chunked=True, chunk_size=100000).get_points())
 
-st.title('Sensor Data')
-st.write('This app reads and displays sesnors data from InfluxDB time-series database.')
+st.title('Sensor View')
+st.write('This app reads and displays environmental sensors data from InfluxDB time-series database.')
 
 dbname = st.secrets["DB_NAME"]
 host= st.secrets["HOST_NAME"]
