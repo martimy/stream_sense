@@ -22,6 +22,7 @@ def load_dataframe(host, dbname, user, password):
     return pd.DataFrame(client.query(query, chunked=True, chunk_size=100000).get_points())
 
 st.title('Sensor Data')
+st.write('This app reads and displays sesnors data from InfluxDB time-series database.')
 
 dbname = st.secrets["DB_NAME"]
 host= st.secrets["HOST_NAME"]
