@@ -53,7 +53,7 @@ sensors = st.multiselect('Select a Sensor', macs)
 lst = {s: df.loc[df.mac == s].resample('5T').mean() for s in sensors}
 
 if lst:
-    st.subheader('Current')
+    st.header('Current Readings')
     for key in lst:
         item = lst[key]
         col0, col1, col2, col3 = st.columns(4)
@@ -62,6 +62,7 @@ if lst:
         col2.metric("Humidity", f'{item["humidity"].iloc[-1]:.0f} %')
         col3.metric("Pressure", f'{item["pressure"].iloc[-1]:.0f} kPa')
     
+    st.header('Historical Readings')
     # Temperature
     temper_list = [lst[key]["temperature"] for key in lst]
     temper_data = pd.concat(temper_list, axis=1, keys=sensors)
