@@ -1,2 +1,3 @@
-# stream_sense
-An app written and deployed suing streamlit
+# Streamit App
+
+An app written and deployed suing streamlit to display sensor data from InfluxDB.
