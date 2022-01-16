@@ -34,14 +34,10 @@ data_load_state = st.text('Loading data...')
 df = load_dataframe(host, dbname, user, password)
 data_load_state.text("Data loading done!")
 
-# Display the raw data
-#st.dataframe(df)
-
 # Convert InfluxDB time to Pandas time index
 df["Datetime"] = pd.to_datetime(df["time"])
 df = df.set_index('Datetime')
 df = df.drop(['time'], axis=1)
-# df = df.tz_convert('Canada/Atlantic')
 
 # Show raw data
 if st.checkbox('Show raw data'):
