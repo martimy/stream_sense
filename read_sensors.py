@@ -24,7 +24,7 @@ def load_dataframe(host, dbname, user, password):
 st.title('Sensor Data')
 
 dbname = st.secrets["DB_NAME"]
-host= st.sectrets["HOST_NAME"]
+host= st.secrets["HOST_NAME"]
 user = st.secrets["db_creds"]["username"]
 password = st.secrets["db_creds"]["password"]
 
