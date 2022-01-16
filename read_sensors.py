@@ -53,6 +53,7 @@ sensors = st.multiselect('Select a Sensor', macs)
 lst = {s: df.loc[df.mac == s].resample('5T').mean() for s in sensors}
 
 if lst:
+    st.subheader('Current')
     for key in lst:
         item = lst[key]
         col0, col1, col2, col3 = st.columns(4)
