@@ -10,7 +10,7 @@ import influxdb
 import streamlit as st
 
 
-@st.cache(allow_output_mutation=True)
+#@st.cache(allow_output_mutation=True)
 def load_dataframe(host, dbname, user, password):
     port=8086
     
@@ -36,14 +36,15 @@ data_load_state.text("Data loading done!")
 
 # Convert InfluxDB time to Pandas time index
 df["Datetime"] = pd.to_datetime(df["time"])
+#df["Datetime"] = df["Datetime"].dt.tz_convert("America/Halifax")
 df = df.set_index('Datetime')
 df = df.drop(['time'], axis=1)
 
 # Show raw data
 if st.checkbox('Show raw data'):
     st.subheader('Raw Data')
-    st.write(df)  # General 
-    #st.dataframe(df) # Specific
+    # st.write(df)  # General 
+    st.dataframe(df) # Specific
     
 # Select sensors
 macs = df.mac.unique()
@@ -63,6 +64,7 @@ if lst:
         col3.metric("Pressure", f'{item["pressure"].iloc[-1]:.0f} hPa')
     
     st.header('Historical Readings')
+    
     # Temperature
     temper_list = [lst[key]["temperature"] for key in lst]
     temper_data = pd.concat(temper_list, axis=1, keys=sensors)
