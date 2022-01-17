@@ -10,7 +10,7 @@ import influxdb
 import streamlit as st
 
 
-#@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True)
 def load_dataframe(host, dbname, user, password):
     port=8086
     
