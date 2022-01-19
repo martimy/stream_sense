@@ -67,6 +67,7 @@ if lst:
         col3.metric("Pressure", f'{item["pressure"].iloc[-1]:.0f} hPa')
 
     st.header('Historical Readings')
+    st.write('Time in UTC.')
 
     st.subheader('Temperature')
     temper_list = [lst[key]["temperature"] for key in lst]
